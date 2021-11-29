@@ -1,0 +1,36 @@
+{
+    "name"                              : "canddi/woodpecker",
+    "description"                       : "woodpecker library for canddi",
+    "license"                           : "proprietary",
+    "minimum-stability"                 : "dev",
+    "prefer-stable"                     : true,
+    "require"                           : {
+        "guzzlehttp/guzzle"             : "6.3.0"
+    },
+    "require-dev"                       : {
+        "fzaninotto/faker"              : "1.7.1",
+        "hamcrest/hamcrest-php"         : "2.0.0",
+        "mockery/mockery"               : "^1.2",
+        "phpunit/phpunit"               : "5.7.26",
+        "squizlabs/php_codesniffer"     : "^3.3",
+        "webmozart/assert"              : "1.2.0",
+        "friendsofphp/php-cs-fixer"     : "^2.13",
+        "zendframework/zendframework1"  : "1.12.18",
+        "zircote/swagger-php"           : "^2.0",
+        "phpstan/phpstan"               : "^0.12.81"
+    },
+    "config"                            : {
+        "preferred-install"             : "dist"
+    },
+    "autoload": {
+        "classmap": [
+            "src/php"
+        ]
+    },
+    "authors"                           : [
+        {
+            "name": "CANDDi",
+            "email": "hello@canddi.com"
+        }
+    ]
+}
