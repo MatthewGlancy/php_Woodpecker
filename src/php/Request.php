@@ -79,7 +79,7 @@ class Request
     }
 
     public function listCampaigns(
-        string $strStatus
+        string $strStatus = null
     )
     {
         $request = new Requests\ListCampaigns(

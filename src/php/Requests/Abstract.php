@@ -10,7 +10,7 @@ abstract class AbstractRequest
 
     private $_strURL;
     private $_strAccessToken;
-    private static $_guzzleConnection;
+    protected static $_guzzleConnection;
     protected $_arrParams;
 
     abstract protected function _getPostBody();
@@ -88,7 +88,7 @@ abstract class AbstractRequest
                 $this->_getPath(),
                 [
                     'query'         => $this->_getQueryString(),
-                    'body'          => $this->_getPostBody()
+                    'json'          => $this->_getPostBody()
                 ]
             );
 
