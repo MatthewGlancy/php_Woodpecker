@@ -8,8 +8,8 @@ abstract class AbstractRequest
     const QUERY_PER_PAGE = 'per_page';
     const QUERY_SORT = 'sort';
 
-    private $_strURL;
-    private $_strAccessToken;
+    protected $_strURL;
+    protected $_strAccessToken;
     protected static $_guzzleConnection;
     protected $_arrParams;
 
