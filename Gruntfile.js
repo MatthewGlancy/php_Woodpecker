@@ -31,12 +31,12 @@ module.exports = function(grunt) {
                     standard: "Zend"
                 }
             },
-            "phpunit-runner": {
+            "phpunit": {
                 options: {
                     bootstrap: "test/localbootstrap.php",
                     colours: true,
                     configuration: "coverage.xml",
-                    phpunit: "vendor/bin/phpunit",
+                    bin: "vendor/bin/phpunit",
                     processIsolation: true,
                     reportUselessTests: true,
                     showUncoveredFiles: true,
@@ -46,18 +46,10 @@ module.exports = function(grunt) {
                     testdoxHtml: "reports/testdox.html"
                 },
                 coverage: {
-                    options: {
-                        coverageHtml: "reports/coverage",
-                        coverageText: ""
-                    },
-                    files: {
-                        testFolder: "test/php/"
-                    }
+                    dir: "test/php/"
                 },
                 test: {
-                    files: {
-                        testFolder: "test/php/"
-                    }
+                    dir: "test/php/"
                 }
             }
         }
@@ -76,7 +68,7 @@ module.exports = function(grunt) {
     grunt.registerTask(
         "coverage",
         [
-            "phpunit-runner:coverage"
+            "phpunit:coverage"
         ]
     );
 
@@ -105,7 +97,7 @@ module.exports = function(grunt) {
     grunt.registerTask(
         "phpunit",
         [
-            "phpunit-runner:test"
+            "phpunit:test"
         ]
     );
 
@@ -113,7 +105,7 @@ module.exports = function(grunt) {
         "test",
         [
             "phpcs",
-            "phpunit-runner:test"
+            "phpunit:test"
         ]
     );
 

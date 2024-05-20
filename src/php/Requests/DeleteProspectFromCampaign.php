@@ -15,7 +15,9 @@ class DeleteProspectFromCampaign
     {
         return [
             Prospect::FIELD_ID => $this->_getParam(Prospect::FIELD_ID),
-            self::QUERY_CAMPAIGNS_ID => $this->_getParam(self::QUERY_CAMPAIGNS_ID)
+            self::QUERY_CAMPAIGNS_ID => $this->_getParam(
+                self::QUERY_CAMPAIGNS_ID
+            )
         ];
     }
 

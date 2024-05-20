@@ -29,8 +29,10 @@ abstract class AbstractRequest
             );
         }
 
-        if(!defined('static::METHOD')) {
-            throw new \Exception('DEV ERROR: Define METHOD on any request class');
+        if (!defined('static::METHOD')) {
+            throw new \Exception(
+                'DEV ERROR: Define METHOD on any request class'
+            );
         }
 
         $this->_strURL          = $strURL;
@@ -69,18 +71,20 @@ abstract class AbstractRequest
                 ],
                 "verify"                => false
             ];
-            static::$_guzzleConnection    = new \GuzzleHttp\Client($arrDefaults);
+            static::$_guzzleConnection = new \GuzzleHttp\Client($arrDefaults);
         }
         return static::$_guzzleConnection;
     }
     /**
      * @return Array json decoded body
-     * 
+     *
      * @throws Exception if response code !== 200
      */
     public function call()
     {
-        $guzzleConnection = static::_getGuzzle($this->_strURL, $this->_strAccessToken);
+        $guzzleConnection = static::_getGuzzle(
+            $this->_strURL, $this->_strAccessToken
+        );
 
         $response                   = $guzzleConnection
             ->request(
@@ -106,8 +110,9 @@ abstract class AbstractRequest
     protected function _getParam(
         string $strKey,
         $defaultValue = null
-    ) {
-        if(!array_key_exists($strKey, $this->_arrParams)) {
+    )
+    {
+        if (!array_key_exists($strKey, $this->_arrParams)) {
             return $defaultValue;
         }
         return $this->_arrParams[$strKey];
