@@ -117,7 +117,8 @@ class Request
             $this->_strURL,
             $this->_strAccessToken,
             [
-                Requests\DeleteProspectFromCampaign::QUERY_CAMPAIGNS_ID => $intCampaignId,
+                Requests\DeleteProspectFromCampaign::QUERY_CAMPAIGNS_ID
+                    => $intCampaignId,
                 Prospect::FIELD_ID => $intProspectId
             ]
         );

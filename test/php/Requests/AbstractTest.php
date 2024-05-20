@@ -105,7 +105,7 @@ class AbstractTest
             'response' => 123
         ];
 
-        $mockGuzzleResponse = \Mockery::mock("GuzzleHttp\Psr7\Response")
+        $mockGuzzleResponse = \Mockery::mock("\GuzzleHttp\Psr7\Response")
             ->shouldReceive('getStatusCode')
             ->once()
             ->withNoArgs()
@@ -113,7 +113,14 @@ class AbstractTest
             ->shouldReceive('getBody')
             ->once()
             ->withNoArgs()
-            ->andReturn(json_encode($arrResponse))
+            ->andReturn(
+                \Mockery::mock('Psr\Http\Message\StreamInterface')
+                    ->shouldReceive('__toString')
+                    ->once()
+                    ->withNoArgs()
+                    ->andReturn(json_encode($arrResponse))
+                    ->mock()
+            )
             ->mock();
 
         $mockGuzzle = \Mockery::mock(\GuzzleHttp\Client::class)
